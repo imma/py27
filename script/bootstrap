@@ -4,7 +4,11 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  uname -a
+  block compile virtualenv27
+  mkdir -p "$shome/bin"
+  ln -nfs ../vendor/virtualenv/bin/pip "$shome/bin/pip27"
+  ln -nfs ../vendor/virtualenv/bin/virtualenv "$shome/bin/virtualenv27"
+  ln -nfs ../vendor/virtualenv/bin/pipenv "$shome/bin/pipenv27"
 }
 
 main "$@"
