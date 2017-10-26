@@ -1,2 +1,3 @@
 /bin/*27
+!/bin/pipenv27
 /vendor
