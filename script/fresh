@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ "$($shome/script/version | jq -r '.pipenv27')" != "$PIPENV_VERSION" ]]; then
+  if [[ "$($shome/script/version | jq -r '.py27')" != "$PY27_VERSION" ]]; then
     return 1
   fi
 
