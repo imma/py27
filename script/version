@@ -4,8 +4,9 @@ function version {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_pipenv27="$(pipenv27 --version 2>/dev/null | awk '{print $3}' || true)"
-  jq -n --arg pipenv27 "$ver_pipenv27" '{pipenv27: $pipenv27}'
+  cd "$shome"
+  local ver_py27="$(python --version 2>&1 | awk '$1 == "Python" {print $2}' || true)"
+  jq -n --arg py27 "$ver_py27" '{py27: $py27}'
 }
 
 version "$@"
