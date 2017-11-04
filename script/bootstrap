@@ -5,6 +5,14 @@ function main {
   source "$shome/script/profile"
 
   cd "$shome"
+
+  case "${DISTRIB_ID}" in
+    Ubuntu|CentOS)
+      yum groupinstall -y "development tools"
+      yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
+      ;;
+  esac
+
   pyenv install -s
   pip install pipenv
 }
