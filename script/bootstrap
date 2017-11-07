@@ -8,7 +8,7 @@ function main {
 
   case "${DISTRIB_ID}" in
     Amazon|CentOS)
-      $NOSUDO sudo yum groupinstall -y "development tools"
+      $NOSUDO sudo yum groupinstall -y --skip-broken "development tools"
       $NOSUDO sudo yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel gdbm-devel db4-devel libpcap-devel xz-devel expat-devel
       ;;
   esac
