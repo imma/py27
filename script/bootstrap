@@ -13,8 +13,7 @@ function main {
       ;;
   esac
 
-  pyenv install -s
-  pip install pipenv
+  block compile pyenv
 }
 
 main "$@"
